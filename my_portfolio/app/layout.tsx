@@ -1,19 +1,18 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import type { ReactNode } from "react";
+import "./globals.css";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Dhanush M - MERN Stack Developer',
-  description: 'Portfolio of Dhanush — MERN Stack Developer'
-}
+  title: "Dhanush Portfolio",
+  description: "Portfolio of Dhanush",
+};
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={inter.className}>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
