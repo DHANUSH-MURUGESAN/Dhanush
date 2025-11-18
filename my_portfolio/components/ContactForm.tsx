@@ -14,7 +14,7 @@ export const ContactForm = () => {
     message: ''
   });
 
-const handleSubmit = async (e) => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
   // show loading toast instantly
