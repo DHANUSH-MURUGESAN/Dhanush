@@ -12,8 +12,14 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-  origin: "https://dhanushm-nine.vercel.app/"
-}));
+    origin: [
+      "https://dhanushm-nine.vercel.app",
+      "http://localhost:3000"
+    ],
+    methods: ["POST"],
+    credentials: true,
+    allowedHeaders: ["Content-Type"],
+  }));
 
 // MongoDB connection
 mongoose
