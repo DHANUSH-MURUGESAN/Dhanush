@@ -13,12 +13,21 @@ export const sendMessage = async (req, res, next) => {
 
     // Email transport config
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.MAIL_PASS,
       },
     });
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.MAIL_PASS,
+    //   },
+    // });
 
     // Email to receiver (you)
     await transporter.sendMail({
@@ -46,7 +55,9 @@ export const sendMessage = async (req, res, next) => {
       `,
     });
 
-    res.status(200).json({ success: true, message: "Message sent successfully" });
+    res
+      .status(200)
+      .json({ success: true, message: "Message sent successfully" });
   } catch (error) {
     next(error);
   }
