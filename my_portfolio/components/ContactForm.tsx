@@ -144,8 +144,8 @@ export const ContactForm = () => {
                 >
                   <Image
                     src="/get_in_touch.png"
-                    width={180}
-                    height={180}
+                    width={440}
+                    height={440}
                     alt="Get in touch"
                     className="scale-x-[-1] drop-shadow-[0_0_15px_#fbbf24]"
                   />
