@@ -1,7 +1,8 @@
-"use client"
+"use client";
 import { siteData } from "@/utils/data";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -9,52 +10,55 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const ContactForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  // show loading toast instantly
-  const loadingToast = toast.loading("Sending message...");
+    // show loading toast instantly
+    const loadingToast = toast.loading("Sending message...");
 
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/contact`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/contact`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (res.ok) {
+      if (res.ok) {
+        toast.update(loadingToast, {
+          render: "✅ Message sent successfully!",
+          type: "success",
+          isLoading: false,
+          autoClose: 2000,
+        });
+
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast.update(loadingToast, {
+          render: "❌ " + (data.error || "Something went wrong"),
+          type: "error",
+          isLoading: false,
+          autoClose: 2500,
+        });
+      }
+    } catch (err) {
       toast.update(loadingToast, {
-        render: "✅ Message sent successfully!",
-        type: "success",
-        isLoading: false,
-        autoClose: 2000,
-      });
-
-      setFormData({ name: "", email: "", message: "" });
-    } else {
-      toast.update(loadingToast, {
-        render: "❌ " + (data.error || "Something went wrong"),
+        render: "⚠️ Server error. Try again later.",
         type: "error",
         isLoading: false,
         autoClose: 2500,
       });
     }
-  } catch (err) {
-    toast.update(loadingToast, {
-      render: "⚠️ Server error. Try again later.",
-      type: "error",
-      isLoading: false,
-      autoClose: 2500,
-    });
-  }
-};
+  };
 
   return (
     <section id="contact" className="py-20 bg-gray-900">
@@ -70,7 +74,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
           </h2>
           <div className="w-24 h-1 bg-linear-to-r from-amber-400 to-amber-600 mx-auto mb-12"></div>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 xl:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -79,7 +83,8 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
             >
               <h3 className="text-2xl font-bold mb-6">Let's work together</h3>
               <p className="text-gray-400 mb-8 leading-relaxed">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                I'm always open to discussing new projects, creative ideas, or
+                opportunities to be part of your vision.
               </p>
 
               <div className="space-y-6">
@@ -89,7 +94,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   </div>
                   <div>
                     <p className="text-gray-500 text-sm">Email</p>
-                    <Link href={`mailto:${siteData.email}`} className="text-white hover:text-amber-400 transition-colors">
+                    <Link
+                      href={`mailto:${siteData.email}`}
+                      className="text-white hover:text-amber-400 transition-colors"
+                    >
                       {siteData.email}
                     </Link>
                   </div>
@@ -116,8 +124,36 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 </div>
               </div>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="flex items-center justify-center"
+            >
+              <div className="relative group">
+                {/* Floating animation wrapper */}
+                <motion.div
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="relative"
+                >
+                  <Image
+                    src="/get_in_touch.png"
+                    width={440}
+                    height={440}
+                    alt="Get in touch"
+                    className="scale-x-[-1] drop-shadow-[0_0_15px_#fbbf24]"
+                  />
+                </motion.div>
+              </div>
+            </motion.div>
 
-            <motion.form
+            {/*<motion.form
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -168,7 +204,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <span>Send Message</span>
                 <Send size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
-            </motion.form>
+            </motion.form>*/}
           </div>
         </motion.div>
       </div>
