@@ -29,7 +29,7 @@ export default function Nav() {
           </button>
         </div>
       </div>
-      {open && (
+      {/* {open && (
         <div className="md:hidden bg-neutral-900/80 backdrop-blur py-4">
           <div className="flex flex-col items-center gap-4">
             <Link href="#about" onClick={() => setOpen(false)}>About</Link>
@@ -46,7 +46,26 @@ export default function Nav() {
             </Link>
           </div>
         </div>
-      )}
+      )} */}
+      {open && (
+  <div className="md:hidden fixed top-16 right-0 w-40 bg-black/80 backdrop-blur py-6 rounded-bl-4xl shadow-xl">
+    <div className="flex flex-col gap-4 px-2 justify-center items-center">
+      <Link href="#about" onClick={() => setOpen(false)}>About</Link>
+      <Link href="#skills" onClick={() => setOpen(false)}>Skills</Link>
+      <Link href="#projects" onClick={() => setOpen(false)}>Projects</Link>
+      <Link href="#experience" onClick={() => setOpen(false)}>Experience</Link>
+      <Link href="#contact" onClick={() => setOpen(false)}>Contact</Link>
+
+      <Link
+        href="/Dhanush Resume - MERN Stack Developer 1.pdf"
+        download="Dhanush_M_Resume.pdf"
+        className="px-4 py-2 border border-amber-400 rounded-md  hover:bg-amber-400 hover:text-black"
+      >
+        Resume
+      </Link>
+    </div>
+  </div>
+)}
     </nav>
   )
 }

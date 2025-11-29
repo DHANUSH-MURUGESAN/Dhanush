@@ -100,11 +100,11 @@ export const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative"
           >
-            <div className="w-full aspect-square max-w-md mx-auto relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
-              <div className="relative w-full h-full bg-gradient-to-br from-amber-500/20 to-amber-600/20 rounded-full border-2 border-amber-500/30 backdrop-blur-sm flex items-center justify-center overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center text-6xl font-bold text-amber-400">
-                  <Image src="/profiles.png" alt="Dhanush M" width={360} height={30} className="absolute top-0 rounded-full" />
+            <div className="w-48 sm:w-52 md:w-72 lg:w-80 xl:w-96 aspect-square mx-auto relative">
+              <div className="absolute inset-0 bg-linear-to-br from-amber-500 to-amber-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
+              <div className="relative w-full h-full bg-linear-to-br from-amber-500/20 to-amber-600/20 rounded-full border-2 border-amber-500/30 backdrop-blur-sm flex items-center justify-center overflow-hidden">
+                <div className="w-full h-full bg-linear-to-br from-gray-800 to-gray-900 flex items-center justify-center text-6xl font-bold text-amber-400">
+                  <Image src="/profiles.png" alt="Dhanush M" width={360} height={30} className="w-24 sm:w-40 md:w-56 lg:w-72 xl:w-76 absolute top-0 rounded-full" />
                 </div>
               </div>
             </div>
