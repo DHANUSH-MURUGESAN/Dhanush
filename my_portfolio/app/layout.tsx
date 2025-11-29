@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import "./globals.css";
 import { Inter } from "next/font/google";
-import FireCursor from "./FireCursor/FireCursor";
+// import FireCursor from "./FireCursor/FireCursor";
 
 const inter = Inter({ subsets: ["latin"] });
 
