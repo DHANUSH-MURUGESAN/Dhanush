@@ -37,6 +37,7 @@ export const About = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
             About <span className="text-amber-400">Me</span>
           </h2>
+          
           <div className="w-24 h-1 bg-linear-to-r from-amber-400 to-amber-600 mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-2 gap-12">

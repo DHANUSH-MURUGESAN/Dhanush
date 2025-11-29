@@ -144,10 +144,15 @@ export const ContactForm = () => {
                 >
                   <Image
                     src="/get_in_touch.png"
+<<<<<<< HEAD
                     width={200}
                     height={200}
+=======
+                    width={180}
+                    height={180}
+>>>>>>> d9f30dc (new changes)
                     alt="Get in touch"
-                    className="scale-x-[-1] drop-shadow-[0_0_15px_#fbbf24]"
+                    className="scale-x-[-1] drop-shadow-[0_0_15px_#fbbf24] sm:hidden md:block lg:block xl:block"
                   />
                 </motion.div>
               </div>
