@@ -104,7 +104,7 @@ export const Hero = () => {
               <div className="absolute inset-0 bg-linear-to-br from-amber-500 to-amber-600 rounded-full blur-2xl opacity-20 animate-pulse"></div>
               <div className="relative w-full h-full bg-linear-to-br from-amber-500/20 to-amber-600/20 rounded-full border-2 border-amber-500/30 backdrop-blur-sm flex items-center justify-center overflow-hidden">
                 <div className="w-full h-full bg-linear-to-br from-gray-800 to-gray-900 flex items-center justify-center text-6xl font-bold text-amber-400">
-                  <Image src="/profiles.png" alt="Dhanush M" width={280} height={30} className=" absolute top-0 rounded-full" />
+                  <Image src="/profiles.png" alt="Dhanush M" width={280} height={30} className="absolute top-0 rounded-full" />
                 </div>
               </div>
             </div>

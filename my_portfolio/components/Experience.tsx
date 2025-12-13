@@ -5,9 +5,24 @@ import { ChevronRight } from "lucide-react";
 export const Experience = () => {
   const experiences = [
     {
-      role: "MERN Stack Developer Intern",
+      role: "Full Stack Developer",
+      company: "KSmacc Software India Private Limited",
+      period: "Dec 2025 – Present",
+      description:
+        "Worked on the development and enhancement of cloud-based business management and accounting software solutions. Contributed to building responsive web interfaces and backend APIs to support accounting, billing, and inventory management modules.",
+      achievements: [
+        "Developed and maintained web application features using React.js, Next.js, Node.js and MongoDB.",
+        "Built reusable and responsive UI components to improve user experience across desktop and mobile devices.",
+        "Integrated RESTful APIs to handle business operations such as billing, inventory, and user management.",
+        "Collaborated with team members using Git and GitHub for version control and code reviews.",
+        "Identified and fixed bugs to improve application performance and reliability."
+  ],
+
+    },
+    {
+      role: "Full Stack Developer Intern",
       company: "Why Global Services",
-      period: "Jan 2025 – Present",
+      period: "Jan 2025 – Nov 2025",
       description:
         "Contributing to the development of responsive and user-friendly E-commerce web applications using the MERN stack. Focused on building reusable UI components and optimizing performance for a seamless user experience.",
       achievements: [
